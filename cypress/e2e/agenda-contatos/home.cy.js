@@ -14,4 +14,14 @@ describe('Testes para a home', () => {
         cy.contains("Adicionar").click()
         cy.screenshot("print-inclusao") // Para gerar um print do teste finalizado
     })
+
+    //Configuração do teste para inclusão
+    it('Deve alterar as informações de um contato da agenda', () => {
+        cy.get(":nth-child(2) > .sc-gueYoa > .edit").click()
+        cy.get('input[type="text"]').clear().type("Contato Exemplo")
+        cy.get('input[type="email"]').clear().type("Contato.email@teste.com")
+        cy.get('input[type="tel"]').clear().type("11 11111-1111")
+        cy.get(".alterar").click()
+        cy.screenshot("print-edicao")
+    })
 })
